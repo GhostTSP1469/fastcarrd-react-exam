@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { apiUrl } from './apiUrl'
 
 export function saveToken(token: string) {
   localStorage.setItem('store_token', token)
@@ -13,7 +14,7 @@ export function removeToken() {
 }
 
 export const axiosRequest = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: apiUrl,
 })
 
 axiosRequest.interceptors.request.use(

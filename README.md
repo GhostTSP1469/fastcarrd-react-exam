@@ -56,6 +56,44 @@ VITE_API_URL=https://fastcard-1-o23z.onrender.com/api
 
 `VITE_API_URL` используется для всех запросов к API.
 
+Если переменная не задана на Vercel, проект использует fallback:
+
+```text
+https://fastcard-1-o23z.onrender.com/api
+```
+
+Но лучше все равно добавить `VITE_API_URL` в настройках Vercel.
+
+## Deploy на Vercel
+
+Для основного магазина:
+
+- Framework Preset: `Vite`
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- Install Command: `npm install`
+
+Environment Variables на Vercel:
+
+```env
+VITE_API_URL=https://fastcard-1-o23z.onrender.com/api
+```
+
+В проекте есть `vercel.json`:
+
+```json
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+
+Он нужен, чтобы React Router работал после refresh и при прямом открытии ссылок вроде `/products`, `/login`, `/account`.
+
 ## Структура проекта
 
 ```text
