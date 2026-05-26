@@ -1,7 +1,5 @@
 import logotipe from '../assets/logotipe.png'
-
-const apiUrl = import.meta.env.VITE_API_URL
-const serverUrl = apiUrl.replace(/\/api\/?$/, '')
+import { serverUrl } from './apiUrl'
 
 export function getImageUrl(image?: string | null) {
   if (!image) {

@@ -83,6 +83,44 @@ VITE_API_URL=https://fastcard-1-o23z.onrender.com/api
 
 Эта переменная используется в `src/api/adminApi.ts`.
 
+Если переменная не задана на Vercel, проект использует fallback:
+
+```text
+https://fastcard-1-o23z.onrender.com/api
+```
+
+Но лучше добавить `VITE_API_URL` в настройках Vercel.
+
+## Deploy на Vercel
+
+Если деплоишь `admin2` как отдельный репозиторий:
+
+- Framework Preset: `Vite`
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- Install Command: `npm install`
+
+Environment Variables:
+
+```env
+VITE_API_URL=https://fastcard-1-o23z.onrender.com/api
+```
+
+В проекте есть `vercel.json`:
+
+```json
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+
+Он нужен, чтобы после refresh работали routes вроде `/login` и `/dashboard`.
+
 ## Структура проекта
 
 ```text

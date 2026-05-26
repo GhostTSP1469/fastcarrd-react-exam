@@ -10,9 +10,8 @@ import type {
   SubCategory,
   UsersData,
 } from '../types'
+import { apiUrl } from '../utils/apiUrl'
 import { getToken } from '../utils/auth'
-
-const apiUrl = import.meta.env.VITE_API_URL
 
 type ApiOptions = {
   method?: string
