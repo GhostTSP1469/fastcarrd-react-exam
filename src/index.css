@@ -1,0 +1,575 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #111827;
+    background: #f8fafc;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .admin-login-page {
+    @apply grid min-h-screen bg-white;
+    grid-template-columns: 53% 47%;
+  }
+
+  .admin-login-brand {
+    @apply flex items-center bg-[#1d2938] px-[64px] text-white;
+  }
+
+  .admin-login-brand p {
+    @apply mb-7 text-[25px] font-medium;
+  }
+
+  .admin-login-logo {
+    @apply flex items-center gap-5;
+  }
+
+  .admin-login-logo img {
+    @apply h-[58px] w-[58px] object-contain;
+  }
+
+  .admin-login-logo span {
+    @apply text-[44px] font-black tracking-[-2px];
+  }
+
+  .admin-login-form-side {
+    @apply grid place-items-center px-10;
+  }
+
+  .admin-login-form {
+    @apply grid w-full max-w-[400px] gap-5;
+  }
+
+  .admin-login-form h1 {
+    @apply mb-2 text-[26px] font-extrabold;
+  }
+
+  .admin-login-form input {
+    @apply h-[56px] w-full rounded border border-[#dedede] px-4 outline-none focus:border-[#2f67e8];
+  }
+
+  .admin-password-field {
+    @apply relative block;
+  }
+
+  .admin-password-field button {
+    @apply absolute right-4 top-1/2 -translate-y-1/2 border-0 bg-transparent text-[#777];
+  }
+
+  .admin-forgot-button {
+    @apply justify-self-center border-0 bg-transparent font-medium text-[#2563eb];
+  }
+
+  .admin-login-button {
+    @apply h-[54px] rounded bg-[#2f67e8] font-bold text-white disabled:opacity-60;
+  }
+
+  .admin-login-error {
+    @apply rounded bg-red-50 px-4 py-3 text-sm font-semibold text-red-600;
+  }
+
+  .admin-shell {
+    @apply grid min-h-screen bg-white;
+    grid-template-columns: 254px minmax(0, 1fr);
+  }
+
+  .admin-sidebar {
+    @apply sticky top-0 flex h-screen flex-col bg-[#1d2938] px-5 py-[22px] text-white;
+  }
+
+  .admin-logo {
+    @apply mb-[34px] flex items-center gap-3 border-0 bg-transparent p-0 text-left text-white;
+  }
+
+  .admin-logo img {
+    @apply h-[42px] w-[42px] object-contain;
+  }
+
+  .admin-logo span {
+    @apply text-[28px] font-black tracking-[-1px];
+  }
+
+  .admin-side-nav {
+    @apply grid gap-2;
+  }
+
+  .admin-side-nav button,
+  .admin-back-store {
+    @apply flex min-h-[46px] w-full items-center gap-3 rounded border-0 bg-transparent px-4 text-left text-[#d7deea];
+  }
+
+  .admin-side-nav button.active {
+    @apply bg-white text-[#58607c];
+  }
+
+  .admin-side-nav b {
+    @apply ml-auto rounded-full bg-[#111827] px-2 py-0.5 text-xs text-white;
+  }
+
+  .admin-back-store {
+    @apply mt-auto;
+  }
+
+  .admin-main {
+    @apply min-w-0;
+  }
+
+  .admin-topbar {
+    @apply sticky top-0 z-10 flex h-[68px] items-center justify-end gap-4 bg-[#1d2938] px-8;
+  }
+
+  .admin-top-search {
+    @apply mr-auto flex h-11 w-[320px] items-center gap-3 rounded-lg bg-transparent text-white;
+  }
+
+  .admin-top-search input {
+    @apply min-w-0 flex-1 border-0 bg-transparent text-white outline-none placeholder:text-white/80;
+  }
+
+  .admin-circle-button {
+    @apply relative grid h-10 w-10 place-items-center rounded-full border-0 bg-transparent text-white;
+  }
+
+  .admin-circle-button span {
+    @apply absolute right-1 top-0 grid h-4 min-w-4 place-items-center rounded-full bg-[#2f67e8] text-[10px] font-bold text-white;
+  }
+
+  .admin-profile {
+    @apply flex items-center gap-3 border-0 bg-transparent text-white;
+  }
+
+  .admin-profile span {
+    @apply grid h-10 w-10 place-items-center rounded-full bg-[#19d48b] font-bold;
+  }
+
+  .admin-content {
+    @apply px-7 py-8;
+  }
+
+  .admin-message-row {
+    @apply mb-5 flex items-center justify-between rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-500;
+  }
+
+  .admin-message-row button,
+  .admin-form-row button {
+    @apply rounded bg-[#2f67e8] px-4 py-2 font-bold text-white;
+  }
+
+  .admin-page-title {
+    @apply mb-6 text-[28px] font-extrabold text-[#111827];
+  }
+
+  .admin-title-row {
+    @apply mb-6 flex items-center justify-between gap-4;
+  }
+
+  .admin-title-row .admin-page-title {
+    @apply mb-0;
+  }
+
+  .admin-title-row button {
+    @apply inline-flex min-h-10 items-center gap-2 rounded bg-[#2f67e8] px-4 font-bold text-white;
+  }
+
+  .admin-stat-grid {
+    @apply mb-4 grid grid-cols-3 gap-3;
+  }
+
+  .admin-stat-card {
+    @apply flex min-h-[84px] items-center gap-5 rounded bg-slate-50 px-7;
+  }
+
+  .admin-stat-card.sales {
+    @apply bg-[#fff0ef];
+  }
+
+  .admin-stat-card.cost {
+    @apply bg-[#fff9e8];
+  }
+
+  .admin-stat-card.profit {
+    @apply bg-[#edfbf5];
+  }
+
+  .admin-stat-card > span {
+    @apply grid h-12 w-12 place-items-center rounded-xl text-white;
+  }
+
+  .admin-stat-card.sales > span {
+    @apply bg-[#ff9d88];
+  }
+
+  .admin-stat-card.cost > span {
+    @apply bg-[#ffba77];
+  }
+
+  .admin-stat-card.profit > span {
+    @apply bg-[#74d989];
+  }
+
+  .admin-stat-card small {
+    @apply block text-slate-500;
+  }
+
+  .admin-stat-card strong {
+    @apply block text-[26px] text-slate-900;
+  }
+
+  .admin-dashboard-grid {
+    @apply mb-6 grid gap-4;
+    grid-template-columns: minmax(0, 1fr) 310px;
+  }
+
+  .admin-bottom-grid {
+    @apply grid grid-cols-2 gap-4;
+  }
+
+  .admin-card {
+    @apply overflow-hidden rounded border border-[#e5e7eb] bg-white;
+  }
+
+  .admin-card-title {
+    @apply flex items-center justify-between px-5 pt-5;
+  }
+
+  .admin-card-title h2 {
+    @apply m-0 text-lg font-extrabold;
+  }
+
+  .admin-card-title button {
+    @apply border-0 bg-transparent font-bold text-slate-800;
+  }
+
+  .admin-chart-card svg {
+    @apply h-[325px] w-full px-5 pb-5 pt-3;
+  }
+
+  .admin-chart-card line {
+    stroke: #dfe6f2;
+    stroke-dasharray: 3 6;
+  }
+
+  .admin-chart-card polyline {
+    fill: none;
+    stroke: #2563eb;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5;
+  }
+
+  .admin-chart-card circle {
+    fill: #fff;
+    stroke: #2563eb;
+    stroke-width: 4;
+  }
+
+  .admin-chart-card .hover-line {
+    stroke: #94a3b8;
+    stroke-dasharray: 5 5;
+  }
+
+  .chart-tip rect {
+    fill: #373b5c;
+  }
+
+  .chart-tip text {
+    fill: #fff;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .admin-chart-card text {
+    fill: #94a3b8;
+    font-size: 12px;
+  }
+
+  .admin-top-selling {
+    @apply px-4 pb-4;
+  }
+
+  .admin-selling-row {
+    @apply grid items-center gap-3 py-3;
+    grid-template-columns: 52px minmax(0, 1fr) auto;
+  }
+
+  .admin-selling-row img,
+  .admin-product-cell img,
+  .admin-category-card img {
+    @apply h-12 w-12 rounded bg-slate-100 object-contain;
+  }
+
+  .admin-selling-row b,
+  .admin-selling-row small {
+    @apply block;
+  }
+
+  .admin-selling-row small,
+  .admin-table small {
+    @apply text-slate-500;
+  }
+
+  .admin-selling-row span {
+    @apply font-bold text-[#00aa7a];
+  }
+
+  .admin-table {
+    @apply w-full text-sm;
+    border-collapse: collapse;
+  }
+
+  .admin-table th {
+    @apply bg-slate-50 px-5 py-4 text-left font-bold text-[#58607c];
+  }
+
+  .admin-table td {
+    @apply border-t border-slate-100 px-5 py-4 align-middle;
+  }
+
+  .admin-table.small th,
+  .admin-table.small td {
+    @apply px-5 py-3;
+  }
+
+  .admin-product-cell {
+    @apply flex items-center gap-3 font-semibold;
+  }
+
+  .admin-status {
+    @apply inline-flex min-w-[70px] justify-center rounded px-3 py-1 font-semibold;
+  }
+
+  .admin-status.paid {
+    @apply bg-[#bff5df] text-[#009e72];
+  }
+
+  .admin-status.pending {
+    @apply bg-[#e9ecf8] text-[#58607c];
+  }
+
+  .admin-delete-button {
+    @apply grid h-9 w-9 place-items-center rounded border border-slate-200 bg-white text-red-500 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .admin-row-actions {
+    @apply flex gap-2;
+  }
+
+  .admin-row-actions button {
+    @apply grid h-9 w-9 place-items-center rounded border border-slate-200 bg-white text-[#2f67e8];
+  }
+
+  .admin-row-actions button.danger {
+    @apply text-red-500;
+  }
+
+  .admin-tabs {
+    @apply mb-5 flex gap-3;
+  }
+
+  .admin-tabs button {
+    @apply min-h-10 rounded border border-slate-200 bg-white px-4 font-bold text-slate-600;
+  }
+
+  .admin-tabs button.active {
+    @apply border-[#2f67e8] bg-[#2f67e8] text-white;
+  }
+
+  .admin-form-row {
+    @apply mb-5 flex flex-wrap gap-3 rounded border border-slate-200 bg-white p-4;
+  }
+
+  .admin-form-row input {
+    @apply h-10 min-w-[240px] rounded border border-slate-200 px-3 outline-none;
+  }
+
+  .admin-product-form {
+    @apply grid gap-5;
+  }
+
+  .admin-form-grid {
+    @apply grid gap-5;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.7fr);
+  }
+
+  .admin-edit-card {
+    @apply grid gap-4 p-5;
+  }
+
+  .admin-edit-card h2 {
+    @apply m-0 text-lg font-extrabold;
+  }
+
+  .admin-edit-card label {
+    @apply grid gap-2 text-sm font-bold text-slate-600;
+  }
+
+  .admin-edit-card input,
+  .admin-edit-card select,
+  .admin-edit-card textarea {
+    @apply min-h-11 rounded border border-slate-200 px-3 font-normal text-slate-900 outline-none focus:border-[#2f67e8];
+  }
+
+  .admin-edit-card textarea {
+    @apply min-h-[130px] resize-y py-3;
+  }
+
+  .admin-input-grid {
+    @apply grid gap-4;
+  }
+
+  .admin-input-grid.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-input-grid.three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .admin-inline-field {
+    @apply flex gap-2;
+  }
+
+  .admin-inline-field input {
+    @apply min-w-0 flex-1;
+  }
+
+  .admin-inline-field button {
+    @apply grid h-11 w-11 place-items-center rounded bg-[#2f67e8] text-white;
+  }
+
+  .admin-checkbox-row {
+    @apply flex flex-row items-center self-end;
+  }
+
+  .admin-checkbox-row input {
+    @apply h-5 min-h-5 w-5 min-w-5;
+  }
+
+  .admin-color-list {
+    @apply flex flex-wrap gap-3;
+  }
+
+  .admin-color-list button {
+    @apply h-8 w-8 rounded-full border-2 border-white shadow-[0_0_0_1px_#94a3b8];
+  }
+
+  .admin-color-list button.active {
+    @apply shadow-[0_0_0_3px_#2f67e8];
+  }
+
+  .admin-upload-box {
+    @apply min-h-[150px] cursor-pointer place-items-center rounded border border-dashed border-slate-300 bg-slate-50 p-5 text-center;
+  }
+
+  .admin-upload-box input {
+    @apply hidden;
+  }
+
+  .admin-upload-box span,
+  .admin-upload-box small,
+  .admin-file-list span {
+    @apply block;
+  }
+
+  .admin-file-list {
+    @apply grid gap-2 text-sm font-normal text-slate-500;
+  }
+
+  .admin-file-list span {
+    @apply truncate rounded bg-slate-50 px-3 py-2;
+  }
+
+  .admin-save-row {
+    @apply flex justify-end gap-3;
+  }
+
+  .admin-save-row button {
+    @apply min-h-11 rounded border border-slate-200 bg-white px-5 font-bold text-slate-700;
+  }
+
+  .admin-save-row button:last-child {
+    @apply border-[#2f67e8] bg-[#2f67e8] text-white;
+  }
+
+  .admin-category-grid {
+    @apply grid grid-cols-4 gap-4;
+  }
+
+  .admin-category-card {
+    @apply grid gap-3 rounded border border-slate-200 bg-white p-4;
+  }
+
+  .admin-category-card img {
+    @apply h-24 w-full;
+  }
+
+  .admin-category-card button {
+    @apply justify-self-start rounded bg-red-500 px-3 py-2 text-sm font-bold text-white;
+  }
+
+  .admin-role-list {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .admin-role-list button {
+    @apply rounded-full border-0 bg-slate-100 px-3 py-1 text-sm font-bold text-slate-600 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .admin-table select {
+    @apply h-10 rounded border border-slate-200 px-3;
+  }
+
+  @media (max-width: 900px) {
+    .admin-login-page,
+    .admin-shell,
+    .admin-dashboard-grid,
+    .admin-bottom-grid,
+    .admin-stat-grid,
+    .admin-form-grid,
+    .admin-input-grid.two,
+    .admin-input-grid.three {
+      grid-template-columns: 1fr;
+    }
+
+    .admin-sidebar {
+      @apply static h-auto;
+    }
+
+    .admin-side-nav {
+      @apply grid-cols-2;
+    }
+
+    .admin-topbar {
+      @apply flex-wrap justify-start h-auto py-4;
+    }
+
+    .admin-top-search {
+      @apply w-full;
+    }
+
+    .admin-category-grid {
+      @apply grid-cols-2;
+    }
+  }
+}
